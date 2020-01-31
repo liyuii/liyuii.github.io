@@ -1159,7 +1159,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #6ff;
+  background: #6b4633;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1693,6 +1693,7 @@ pre .javascript .function {
 .post-body h5,
 .post-body h6 {
   padding-top: 10px;
+  border-bottom: 1px solid #eee;
 }
 .post-body h1 .header-anchor,
 .post-body h2 .header-anchor,
