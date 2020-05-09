@@ -46,20 +46,20 @@
   };
 </script>
 
-  <meta name="description" content="Welcome to liyuii’s blog">
+  <meta name="description" content="ArrayList： 对 toArray() 方法的一些分析">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://liyuii.github.io/2020/01/13/Hello/index.html">
+<meta property="og:title" content="ArrayList： toArray()方法分析">
+<meta property="og:url" content="https://liyuii.github.io/2020/02/27/ArrayList%E4%B8%8B%20toArray()%E6%96%B9%E6%B3%95%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/index.html">
 <meta property="og:site_name" content="liyuii的博客">
-<meta property="og:description" content="Welcome to liyuii’s blog">
+<meta property="og:description" content="ArrayList： 对 toArray() 方法的一些分析">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-01-13T02:15:11.609Z">
-<meta property="article:modified_time" content="2020-02-27T05:34:20.121Z">
+<meta property="article:published_time" content="2020-02-27T03:56:21.015Z">
+<meta property="article:modified_time" content="2020-02-27T05:37:15.936Z">
 <meta property="article:author" content="liyuii">
-<meta property="article:tag" content="test">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://liyuii.github.io/2020/01/13/Hello/">
+<link rel="canonical" href="https://liyuii.github.io/2020/02/27/ArrayList%E4%B8%8B%20toArray()%E6%96%B9%E6%B3%95%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">
 
 
 <script id="page-configurations">
@@ -71,7 +71,7 @@
   };
 </script>
 
-  <title>Hello World | liyuii的博客</title>
+  <title>ArrayList： toArray()方法分析 | liyuii的博客</title>
   
 
 
@@ -187,7 +187,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://liyuii.github.io/2020/01/13/Hello/">
+    <link itemprop="mainEntityOfPage" href="https://liyuii.github.io/2020/02/27/ArrayList%E4%B8%8B%20toArray()%E6%96%B9%E6%B3%95%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -200,7 +200,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World
+          ArrayList： toArray()方法分析
         </h1>
 
         <div class="post-meta">
@@ -209,24 +209,18 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-01-13 10:15:11" itemprop="dateCreated datePublished" datetime="2020-01-13T10:15:11+08:00">2020-01-13</time>
+              <time title="创建时间：2020-02-27 11:56:21 / 修改时间：13:37:15" itemprop="dateCreated datePublished" datetime="2020-02-27T11:56:21+08:00">2020-02-27</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-27 13:34:20" itemprop="dateModified" datetime="2020-02-27T13:34:20+08:00">2020-02-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%B5%8B%E8%AF%95/" itemprop="url" rel="index">
-                    <span itemprop="name">测试</span>
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
                   </a>
                 </span>
             </span>
@@ -246,10 +240,36 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Welcome to liyuii’s blog</p>
+        <p>ArrayList： 对 toArray() 方法的一些分析</p>
 <a id="more"></a>
 
-<p>2020年的第一篇博客，以后也会继续努力的，fighting~</p>
+
+
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>今天学习ArrayList的时候，发现了下面两种情况：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//测试</span></span><br><span class="line">	List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">	list.add(<span class="number">10</span>);</span><br><span class="line">	list.add(<span class="number">20</span>);</span><br><span class="line">	list.add(<span class="number">30</span>);</span><br><span class="line">	</span><br><span class="line">    <span class="comment">// 1</span></span><br><span class="line">	Integer[] array1 = <span class="keyword">new</span> Integer[<span class="number">5</span>];	</span><br><span class="line">	Integer[] ss1 = list.toArray(array1);</span><br><span class="line">		</span><br><span class="line">	System.out.println(array1 == ss1);	<span class="comment">// true</span></span><br><span class="line">	System.out.println(ss1.length);		<span class="comment">// 5		</span></span><br><span class="line">	</span><br><span class="line">    <span class="comment">// 2</span></span><br><span class="line">	Integer[] array2 = <span class="keyword">new</span> Integer[<span class="number">2</span>];		</span><br><span class="line">	Integer[] ss2 = list.toArray(array2);</span><br><span class="line">	</span><br><span class="line">	System.out.println(array2 == ss2);	<span class="comment">// false</span></span><br><span class="line">	System.out.println(ss2.length);		<span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>查看源码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</span><br><span class="line"><span class="keyword">public</span> &lt;T&gt; T[] toArray(T[] a) &#123;</span><br><span class="line">    <span class="keyword">if</span> (a.length &lt; size)</span><br><span class="line">        <span class="comment">// Make a new array of a's runtime type, but my contents:</span></span><br><span class="line">        <span class="keyword">return</span> (T[]) Arrays.copyOf(elementData, size, a.getClass());</span><br><span class="line">    System.arraycopy(elementData, <span class="number">0</span>, a, <span class="number">0</span>, size);</span><br><span class="line">    <span class="keyword">if</span> (a.length &gt; size)</span><br><span class="line">        a[size] = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>调用 toArray(T[] a) 方法，可以将列表转为数组，本质上是进行了复制，所以要求数组和列表的数据类型要一致</p>
+<p>① 如果 a 的长度小于 list 长度</p>
+<p>返回一个数组，注意，这个数组由Arrays.copyOf() 生成</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T,U&gt; T[] copyOf(U[] original, <span class="keyword">int</span> newLength, Class&lt;? extends T[]&gt; newType) &#123;</span><br><span class="line">    <span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</span><br><span class="line">    T[] copy = ((Object)newType == (Object)Object[]<span class="class">.<span class="keyword">class</span>)</span></span><br><span class="line">        ? (T[]) new Object[newLength]</span><br><span class="line">        : (T[]) Array.newInstance(newType.getComponentType(), newLength);</span><br><span class="line">    System.arraycopy(original, <span class="number">0</span>, copy, <span class="number">0</span>,</span><br><span class="line">                     Math.min(original.length, newLength));</span><br><span class="line">    <span class="keyword">return</span> copy;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>可知，Arrays.copyOf() 没有改变原数组的内容，返回的是内部new出来的一个长度为list个数的新数组copy，因为copy 和形参的 a 地址不同 ，所以例2结果为false</p>
+<p>②  如果 a 的长度小于 list 长度</p>
+<p>调用System.arraycopy() 完成复制</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">arraycopy</span><span class="params">(Object src,  <span class="keyword">int</span>  srcPos,</span></span></span><br><span class="line"><span class="function"><span class="params">                                    Object dest, <span class="keyword">int</span> destPos,</span></span></span><br><span class="line"><span class="function"><span class="params">                                    <span class="keyword">int</span> length)</span></span>;</span><br></pre></td></tr></table></figure>
+
+
+<p>因为System.arraycopy() 是直接对传入的数组进行操作，改变了 a 的内容，并返回，这时的a和形参里的a为同一个对象，所以例1结果为true，长度也相同</p>
 
     </div>
 
@@ -259,7 +279,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/test/" rel="tag"># test</a>
+              <a href="/tags/java/" rel="tag"># java</a>
           </div>
 
         
@@ -267,10 +287,13 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2020/01/27/Blog/" rel="next" title="Hexo + Next + github 搭建个人博客（一）">
-      Hexo + Next + github 搭建个人博客（一） <i class="fa fa-chevron-right"></i>
+    <a href="/2020/01/31/Blog2020-1-31/" rel="prev" title="Hexo + Next + github 搭建个人博客（二）">
+      <i class="fa fa-chevron-left"></i> Hexo + Next + github 搭建个人博客（二）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/05/%E5%BD%BB%E5%BA%95%E4%BA%86%E8%A7%A3%20Integer%20%E5%92%8C%20int/" rel="next" title="彻底了解 Integer 和 int">
+      彻底了解 Integer 和 int <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -331,6 +354,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码"><span class="nav-number">2.</span> <span class="nav-text">源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-number">3.</span> <span class="nav-text">分析</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
