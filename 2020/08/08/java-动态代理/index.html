@@ -46,20 +46,20 @@
   };
 </script>
 
-  <meta name="description" content="今天做项目的时候接触了一个新概念：分模块开发，这对我来说是一个陌生的词汇，于是搜索了一些资料，下面是我对它的理解。">
+  <meta name="description" content="之前只是知道动态代理是AOP的原理，但是一直没弄清楚，今天看完一些教程，有了大概的了解…">
 <meta property="og:type" content="article">
-<meta property="og:title" content="maven的分模块开发">
-<meta property="og:url" content="https://liyuii.github.io/2020/08/02/Maven%E7%9A%84%E5%88%86%E6%A8%A1%E5%9D%97%E5%BC%80%E5%8F%91/index.html">
+<meta property="og:title" content="java 动态代理">
+<meta property="og:url" content="https://liyuii.github.io/2020/08/08/java-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/index.html">
 <meta property="og:site_name" content="liyuii的博客">
-<meta property="og:description" content="今天做项目的时候接触了一个新概念：分模块开发，这对我来说是一个陌生的词汇，于是搜索了一些资料，下面是我对它的理解。">
+<meta property="og:description" content="之前只是知道动态代理是AOP的原理，但是一直没弄清楚，今天看完一些教程，有了大概的了解…">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-08-02T05:11:20.000Z">
-<meta property="article:modified_time" content="2020-08-07T10:01:34.996Z">
+<meta property="article:published_time" content="2020-08-08T09:20:55.000Z">
+<meta property="article:modified_time" content="2020-08-08T14:20:53.858Z">
 <meta property="article:author" content="liyuii">
-<meta property="article:tag" content="maven">
+<meta property="article:tag" content="动态代理">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://liyuii.github.io/2020/08/02/Maven%E7%9A%84%E5%88%86%E6%A8%A1%E5%9D%97%E5%BC%80%E5%8F%91/">
+<link rel="canonical" href="https://liyuii.github.io/2020/08/08/java-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/">
 
 
 <script id="page-configurations">
@@ -71,7 +71,7 @@
   };
 </script>
 
-  <title>maven的分模块开发 | liyuii的博客</title>
+  <title>java 动态代理 | liyuii的博客</title>
   
 
 
@@ -187,7 +187,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://liyuii.github.io/2020/08/02/Maven%E7%9A%84%E5%88%86%E6%A8%A1%E5%9D%97%E5%BC%80%E5%8F%91/">
+    <link itemprop="mainEntityOfPage" href="https://liyuii.github.io/2020/08/08/java-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -200,7 +200,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          maven的分模块开发
+          java 动态代理
         </h1>
 
         <div class="post-meta">
@@ -209,24 +209,18 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-08-02 13:11:20" itemprop="dateCreated datePublished" datetime="2020-08-02T13:11:20+08:00">2020-08-02</time>
+              <time title="创建时间：2020-08-08 17:20:55 / 修改时间：22:20:53" itemprop="dateCreated datePublished" datetime="2020-08-08T17:20:55+08:00">2020-08-08</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-07 18:01:34" itemprop="dateModified" datetime="2020-08-07T18:01:34+08:00">2020-08-07</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/maven/" itemprop="url" rel="index">
-                    <span itemprop="name">maven</span>
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
                   </a>
                 </span>
             </span>
@@ -246,12 +240,50 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>今天做项目的时候接触了一个新概念：分模块开发，这对我来说是一个陌生的词汇，于是搜索了一些资料，下面是我对它的理解。</p>
+        <p>之前只是知道动态代理是AOP的原理，但是一直没弄清楚，今天看完一些教程，有了大概的了解…</p>
 <a id="more"></a>
 
 
 
-<p>未完待续…</p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="三要素"><a href="#三要素" class="headerlink" title="三要素"></a>三要素</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.接口</span><br><span class="line">2.被代理类</span><br><span class="line">3.代理类</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="两个步骤"><a href="#两个步骤" class="headerlink" title="两个步骤"></a>两个步骤</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.通过实现 InvocationHandler 接口创建自己的调用处理器</span><br><span class="line">2.通过为Proxy类的newProxyInstance方法指定代理类的ClassLoader 对象和代理要实现的interface以及调用处理   器InvocationHandler对象 来创建动态代理类的对象</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><h4 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Sales</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sell</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="被代理类"><a href="#被代理类" class="headerlink" title="被代理类"></a>被代理类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Owner</span> <span class="keyword">implements</span> <span class="title">Sales</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sell</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"我是房东我正在出售我的房产"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="实现代理类"><a href="#实现代理类" class="headerlink" title="实现代理类"></a>实现代理类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 动态代理类对应的调用处理程序类 </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Penn</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SalesInvocationHandler</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span></span>&#123;</span><br><span class="line">     <span class="comment">//代理类持有一个委托类的对象引用  </span></span><br><span class="line">     <span class="keyword">private</span> Object delegate;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SalesInvocationHandler</span><span class="params">(Object delegate)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.delegate = delegate;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span><span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        before();</span><br><span class="line">		Object res = method.invoke(delegate, args);		</span><br><span class="line">		after();</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 客户端，使用代理类和主题接口完成一些工作。&lt;br&gt;</span></span><br><span class="line"><span class="comment"> * 在这里表示买房子的客户</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Penn</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[]args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 委托类--&gt;实例化</span></span><br><span class="line">		Sale sale = <span class="keyword">new</span> Owner();	</span><br><span class="line">		<span class="comment">// 代理类，与委托类实现相同的接口，实例化时传入委托对象，用来增强委托类的方法</span></span><br><span class="line">		SalesInvocationHandler  handle = <span class="keyword">new</span> SalesInvocationHandler(sale);</span><br><span class="line">		<span class="comment">// 由 Proxy.newProxyInstance 生成代理对象</span></span><br><span class="line">		Sale test = (Sale)Proxy.newProxyInstance(sale.getClass().getClassLoader(), 		         sale.getClass().getInterfaces(), handle);		</span><br><span class="line">		<span class="comment">//调用方法</span></span><br><span class="line">		test.sale();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>1）先将委托类对象 new OperateImpl() 作为 SalesInvocationHandler 构造函数入参创建 delegate 对象；</p>
+<p>2）然后通过 Proxy.newProxyInstance(…) 函数新建了一个代理对象，实际代理类就是在这时候动态生成的。我们调用该代理对象的函数就会调用到 delegate 的 invoke 函数（是不是有点类似静态代理），而 invoke 函数实现中调用委托类对象 new Owner() 相应的 method（是不是有点类似静态代理）。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://www.bilibili.com/video/BV1Dt41187wj?from=search&seid=12052840327092702422" target="_blank" rel="noopener">十分钟了解java动态代理</a></p>
+<p><a href="https://www.cnblogs.com/cute/p/9115753.html" target="_blank" rel="noopener">Java代理和动态代理机制分析和应用</a></p>
+<p><a href="https://www.jianshu.com/p/4cb75c545e3b" target="_blank" rel="noopener">反射动态代理注解-依赖注入</a></p>
 
     </div>
 
@@ -261,7 +293,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/maven/" rel="tag"># maven</a>
+              <a href="/tags/%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/" rel="tag"># 动态代理</a>
           </div>
 
         
@@ -270,12 +302,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/06/01/PageHelper%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="prev" title="PageHelper的使用">
-      <i class="fa fa-chevron-left"></i> PageHelper的使用
+    <a href="/2020/08/07/org.json%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" rel="prev" title="org.json的常用方法">
+      <i class="fa fa-chevron-left"></i> org.json的常用方法
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/08/05/%E9%9D%92%E6%A9%99%E5%95%86%E5%9F%8E%20%E2%80%94%20%E5%A2%9E%E5%8A%A0&%E5%88%A0%E9%99%A4/" rel="next" title="青橙商城 — 增加&删除">
-      青橙商城 — 增加&删除 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/08/08/clone%E6%96%B9%E6%B3%95/" rel="next" title="clone方法">
+      clone方法 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -336,6 +368,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三要素"><span class="nav-number">1.1.</span> <span class="nav-text">三要素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两个步骤"><span class="nav-number">1.2.</span> <span class="nav-text">两个步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例"><span class="nav-number">2.</span> <span class="nav-text">实例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#接口"><span class="nav-number">2.0.1.</span> <span class="nav-text">接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#被代理类"><span class="nav-number">2.0.2.</span> <span class="nav-text">被代理类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现代理类"><span class="nav-number">2.0.3.</span> <span class="nav-text">实现代理类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">3.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
