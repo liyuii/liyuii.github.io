@@ -54,7 +54,7 @@
 <meta property="og:description" content="之前只是知道动态代理是AOP的原理，但是一直没弄清楚，今天看完一些教程，有了大概的了解…">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-08T09:20:55.000Z">
-<meta property="article:modified_time" content="2020-08-08T14:20:53.858Z">
+<meta property="article:modified_time" content="2020-09-15T07:59:02.403Z">
 <meta property="article:author" content="liyuii">
 <meta property="article:tag" content="动态代理">
 <meta name="twitter:card" content="summary">
@@ -209,10 +209,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-08-08 17:20:55 / 修改时间：22:20:53" itemprop="dateCreated datePublished" datetime="2020-08-08T17:20:55+08:00">2020-08-08</time>
+              <time title="创建时间：2020-08-08 17:20:55" itemprop="dateCreated datePublished" datetime="2020-08-08T17:20:55+08:00">2020-08-08</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-15 15:59:02" itemprop="dateModified" datetime="2020-09-15T15:59:02+08:00">2020-09-15</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -267,13 +273,13 @@
 
 
 
-<h4 id="实现代理类"><a href="#实现代理类" class="headerlink" title="实现代理类"></a>实现代理类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 动态代理类对应的调用处理程序类 </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Penn</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SalesInvocationHandler</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span></span>&#123;</span><br><span class="line">     <span class="comment">//代理类持有一个委托类的对象引用  </span></span><br><span class="line">     <span class="keyword">private</span> Object delegate;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SalesInvocationHandler</span><span class="params">(Object delegate)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.delegate = delegate;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span><span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        before();</span><br><span class="line">		Object res = method.invoke(delegate, args);		</span><br><span class="line">		after();</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="实现代理类"><a href="#实现代理类" class="headerlink" title="实现代理类"></a>实现代理类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 动态代理类对应的调用处理程序类 </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Penn</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SalesInvocationHandler</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span></span>&#123;</span><br><span class="line">    <span class="comment">//代理类持有一个委托类的对象引用  </span></span><br><span class="line">    <span class="keyword">private</span> Object delegate;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SalesInvocationHandler</span><span class="params">(Object delegate)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.delegate = delegate;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span><span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        before();</span><br><span class="line">		Object res = method.invoke(delegate, args);		</span><br><span class="line">		after();</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
 
 
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 客户端，使用代理类和主题接口完成一些工作。&lt;br&gt;</span></span><br><span class="line"><span class="comment"> * 在这里表示买房子的客户</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Penn</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[]args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 委托类--&gt;实例化</span></span><br><span class="line">		Sale sale = <span class="keyword">new</span> Owner();	</span><br><span class="line">		<span class="comment">// 代理类，与委托类实现相同的接口，实例化时传入委托对象，用来增强委托类的方法</span></span><br><span class="line">		SalesInvocationHandler  handle = <span class="keyword">new</span> SalesInvocationHandler(sale);</span><br><span class="line">		<span class="comment">// 由 Proxy.newProxyInstance 生成代理对象</span></span><br><span class="line">		Sale test = (Sale)Proxy.newProxyInstance(sale.getClass().getClassLoader(), 		         sale.getClass().getInterfaces(), handle);		</span><br><span class="line">		<span class="comment">//调用方法</span></span><br><span class="line">		test.sale();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 客户端，使用代理类和主题接口完成一些工作。</span></span><br><span class="line"><span class="comment"> * 在这里表示买房子的客户</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Penn</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[]args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 委托类--&gt;实例化</span></span><br><span class="line">		Sale sale = <span class="keyword">new</span> Owner();	</span><br><span class="line">		<span class="comment">// 代理类，与委托类实现相同的接口，实例化时传入委托对象，用来增强委托类的方法</span></span><br><span class="line">		SalesInvocationHandler  handle = <span class="keyword">new</span> SalesInvocationHandler(sale);</span><br><span class="line">		<span class="comment">// 由 Proxy.newProxyInstance 生成代理对象</span></span><br><span class="line">		Sale test = (Sale)Proxy.newProxyInstance(sale.getClass().getClassLoader(), 		         sale.getClass().getInterfaces(), handle);		</span><br><span class="line">		<span class="comment">//调用方法</span></span><br><span class="line">		test.sale();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -302,8 +308,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/08/07/org.json%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" rel="prev" title="org.json的常用方法">
-      <i class="fa fa-chevron-left"></i> org.json的常用方法
+    <a href="/2020/08/07/FileInputStream%E5%92%8CFileOutputStream%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="prev" title="IO流（一）">
+      <i class="fa fa-chevron-left"></i> IO流（一）
     </a></div>
       <div class="post-nav-item">
     <a href="/2020/08/08/clone%E6%96%B9%E6%B3%95/" rel="next" title="clone方法">
@@ -384,20 +390,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
